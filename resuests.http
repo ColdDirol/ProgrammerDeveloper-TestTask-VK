@@ -1,0 +1,74 @@
+#users:
+@token = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImVtYWlsQGVtYWlsLmNvbSIsInJvbGUiOiJ1c2VyIiwiZXhwIjoxNzEwNzU2OTYxfQ==.yrNF1z7l6wVF9X4sxtknaRlka5ObSC6JvAVz0AfVEt0=
+###
+POST http://localhost:8080/registration
+Content-Type: application/json
+
+{
+  "first_name": "mail",
+  "last_name": "mail",
+  "email": "email@email.com",
+  "password": "password",
+  "role": "admin"
+}
+
+###
+POST http://localhost:8080/login
+Content-Type: application/json
+
+{
+  "email": "email@email.com",
+  "password": "password"
+}
+
+
+###
+# users
+###
+GET http://localhost:8080/users
+Authorization: {{token}}
+
+###
+GET http://localhost:8080/users/1
+Authorization: {{token}}
+
+###
+DELETE http://localhost:8080/users/1
+Authorization: {{token}}
+
+# quests
+###
+GET http://localhost:8080/quests
+Authorization: {{token}}
+
+###
+GET http://localhost:8080/quests/1
+Authorization: {{token}}
+
+###
+POST http://localhost:8080/quests
+Content-Type: application/json
+Authorization: {{token}}
+
+{
+  "name": "quest1",
+  "cost": 10
+}
+
+###
+PUT http://localhost:8080/quests/{questID}
+Authorization: {{token}}
+
+###
+DELETE http://localhost:8080/quests/{questID}
+Authorization: {{token}}
+
+
+#common
+###
+POST http://localhost:8080/users/complete_quest/3/1
+Authorization: {{token}}
+
+###
+GET http://localhost:8080/users/quests/3
+Authorization: {{token}}
