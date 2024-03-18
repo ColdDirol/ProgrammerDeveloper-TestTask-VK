@@ -22,5 +22,5 @@ PUT http://localhost:8080/quests/{questID}
 DELETE http://localhost:8080/quests/{questID}
 
 POST http://localhost:8080/users/{userID}/quests/{questID}
-GET http://localhost:8080/users/quests/{questID}
+GET http://localhost:8080/users/{userID}/quests
 ```
